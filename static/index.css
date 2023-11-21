@@ -1,0 +1,97 @@
+main{
+    list-style: none;
+}
+
+.hero-section {
+    background-image: url("https://img.freepik.com/free-photo/african-american-female-worker-making-inventory-packages-organizing-delivery-schedule-digital-tablet-her-colleague-is-working-background_637285-2227.jpg?w=1380&t=st=1700471590~exp=1700472190~hmac=f4a1f44251abc93fcdc6159e4b6cc37340645ae4db138d16e1431da2d7c2ba9e");
+    background-size: cover;
+    background-position: center;
+    color: #efebeb;
+    text-align: left;
+    padding: 100px 20px;
+    max-height: 600px;
+    max-width: 100%;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-section h1,
+.hero-section p,
+.hero-section button {
+    margin: 24px -180px; /* Adjust the margin as needed */
+}
+.about-us-section {
+    background-color: #f8f9fa;
+    text-align: center;
+    padding: 50px 20px;
+    margin-bottom: 40px; /* Add space at the bottom */
+}
+
+.card-container {
+    background-color: #f8f9fa; /* Grey background */
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 30px; /* Adjust to increase space between card containers */
+    border-radius: 10px;
+}
+
+
+.process-section {
+    background-color: #f8f9fa;
+    padding: 50px 20px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.process-card {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    max-height: 200px;
+}
+
+.tailored-section {
+    height: 500px; /* Set the height as needed */
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: space-between; /* Add space around elements */
+    background-color: #f8f9fa;
+    text-align: center;
+    padding: 20px 20px;
+}
+ .tailored-text {
+     max-width: 600px; /* Set the maximum width as needed */
+ }
+
+.blog-section {
+    background-color: #f8f9fa;
+    padding-bottom: 50px;
+    text-align: center;
+    margin-bottom: 40px;
+
+}
+
+.blog-item {
+    margin-top: 30px; /* Adjust spacing between blog items */
+    height: 300px;
+
+}
+
+.blog-img {
+    max-width: 300px ;
+    border-radius: 10px;
+    height: 200px;
+    display: flex;
+    justify-content: space-between;}
+
+.footer-section a {
+    color: inherit; /* Use the default text color */
+    text-decoration: none; /* Remove underlines */
+    transition: color 0.3s; /* Smooth color transition on hover */
+}
+
+.footer-section a:hover {
+    color: #b60c20; /* Change color on hover */
+}
