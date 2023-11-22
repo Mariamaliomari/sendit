@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Services</title>
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+{#    <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">#}
+
+    <script src=" {% static 'js/bootstrap.min.js' %}"></script>
+    {% load bootstrap_icons %}
+    <style>
+    .feature-circle {
+        background-color: lightgray;
+        border-radius: 50%;
+        padding: 45px;
+        height: 190px;
+        width: 190px;
+        position: relative;
+    }
+
+    .orange-dot {
+        position: absolute;
+        background-color: orangered;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        top: 0;
+        right: 0;
+        transform: translate(-455%, 10%);
+    }
+</style>
+</head>
+<body>
+<div id="mother">
+{#    Navbarsection#}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="height: 80px;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#" style="font-size: 28px; font-weight: bold; color: #ef4410; padding-right: 20px;">
+                <i class="bi bi-box"></i> SendIt
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active fw-bold" aria-current="page" href="{% url 'index' %}" style="color: blue; padding: 10px;font-size: 18px;">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold" href="{% url 'about' %}" style="color: blue; padding: 10px;font-size: 18px;">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold" href="{% url 'services' %}" style="color: blue; padding: 10px;font-size: 18px;">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold" href="#" style="color: blue; padding: 10px;font-size: 18px;">Transporters</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle fw-bold" style="color: blue; padding: 10px;font-size: 18px;" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Account
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" style="color: blue; padding: 10px;font-size: 18px;" href="#">Customer</a></li>
+                            <li><a class="dropdown-item" style="color: blue; padding: 10px;font-size: 18px;" href="#">Driver</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="d-flex">
+                <button class="btn btn-outline-success rounded-pill mx-5 fw-bold" style="margin-right: 10px; margin-left: 40px">Book Delivery</button>
+                <button class="btn btn-outline-primary rounded-pill mx-3 fw-bold" style="margin-right: 10px;">Signup</button>
+                <button class="btn btn-outline-primary rounded-pill mx-3 fw-bold" style="margin-right: 10px;">Login</button>
+            </div>
+        </div>
+    </nav>
+{#    End nav#}
+    <div id="services" style="background-color:white; " >
+        <div id="ourservices" class="py-5">
+        <div class="container">
+            <h1 class="text-center mb-4" style="color: orangered;">Our Services</h1>
+            <p class="text-center">SendIt is a specialized moving company that handles all types of moves within Kenya and East Africa. We offer services such as packing and unpacking, cleaning, as well as furniture dismantling and reassembly.</p>
+
+            <div class="row mt-4 mr-4">
+                <!-- Service 1 -->
+                <div class="col-md-3 mb-4 mr-3 text-center bg-light shadow p-3 mb-5 rounded">
+                    <h3 style="color: #041556;font-size: 20px">House Removal</h3>
+                    <img src="{% static 'images/removal.webp' %}" alt="Service 1 Image" class="img-fluid rounded">
+                    <button class="btn  mt-2 rounded-pill text-white" style=" background-color: orangered">Get a Quote</button>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="col-md-3 mb-4 mr-3 text-center bg-light shadow p-3 mb-5 rounded">
+                    <h3 style="color: #041556;font-size: 20px">Office Removal</h3>
+                    <img src="{% static 'images/office.webp' %}" alt="Service 2 Image" class="img-fluid rounded">
+                    <button class="btn mt-2 rounded-pill text-white" style=" background-color: orangered">Get a Quote</button>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="col-md-3 mb-4 mr-3 text-center bg-light shadow p-3 mb-5 rounded">
+                    <h3 style="color: #041556 ;font-size: 20px">Flat removal</h3>
+                    <img src="{% static 'images/flat.webp' %}" alt="Service 3 Image" class="img-fluid rounded">
+                    <button class="btn  mt-2 rounded-pill text-white" style=" background-color: orangered">Get a Quote</button>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="col-md-3 mb-4 mr-3 text-center bg-light shadow p-3 mb-5 rounded">
+                    <h3 style="color: #041556;font-size: 20px">Furniture delivery</h3>
+                    <img src="{% static 'images/furniture.avif' %}" alt="Service 4 Image" class="img-fluid rounded">
+                    <button class="btn  mt-2 rounded-pill text-white"style=" background-color: orangered">Get a Quote</button>
+                </div>
+                <div class="col-md-3 mb-4 mr-3 text-center bg-light shadow p-3 mb-5 rounded">
+                    <h3 style="color: #041556; font-size: 20px">Furniture Disassembly and Assembly</h3>
+                    <img src="{% static 'images/furniture.avif' %}" alt="Service 4 Image" class="img-fluid rounded">
+                    <button class="btn  mt-2 rounded-pill text-white" style=" background-color: orangered">Get a Quote</button>
+                </div>
+                <div class="col-md-3 mb-4 mr-3 text-center bg-light shadow p-3 mb-5 rounded">
+                    <h3 style="color: #041556 ;font-size: 20px">Parcel Delivery</h3>
+                    <img src="{% static 'images/parcel.webp' %}" alt="Service 4 Image" class="img-fluid rounded">
+                    <button class="btn  mt-2 rounded-pill text-white" style=" background-color: orangered">Get a Quote</button>
+                </div>
+                <div class="col-md-3 mb-4 mr-3 text-center bg-light shadow p-3 mb-5 rounded">
+                    <h3 style="color: #270796 ;font-size: 20px">Agribusiness</h3>
+                    <img src="{% static 'images/vege.jpeg' %}" alt="Service 4 Image" class="img-fluid rounded">
+                    <button class="btn  mt-2 rounded-pill text-white" style=" background-color: orangered">Get a Quote</button>
+                </div>
+                <div class="col-md-3 mb-4 mr-3 text-center bg-light shadow p-3 mb-5 rounded">
+                    <h3 style="color: #041556 ;font-size: 20px">Packing And Unpacking</h3>
+                    <img src="{% static 'images/packing.jpeg' %}" alt="Service 4 Image" class="img-fluid rounded">
+                    <button class="btn mt-2 rounded-pill text-white" style=" background-color: orangered">Get a Quote</button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+        <div class="process-section" style="width: 90%; margin: auto; background-color: white">
+            <div class="container">
+                <h3 class="display-4 fw-bold" style="color: orangered; font-size: 36px; text-align: left;">Our Process</h3>
+                <p class="lead fw-bolder" style="color: #270796; font-size: 18px; text-align: left;">Our Process is Very Easy to Book a Service. In The Below Steps, Your House Removal Can be Done</p>
+
+    {# Four Process Card Containers #}
+        <div class="row" >
+            <div class="col-md-3">
+                <div class="process-card shadow p-3 mb-5 rounded">
+                <div class="number-box fw-bold" style="font-size: 30px; color: orangered">1</div>
+                <h4 class="fw-bold" style="color: #041556; font-size: 20px;">Book Services</h4>
+                <p>Now your booking is just a few clicks away. Click to the best option and get the best services.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="process-card shadow p-3 mb-5 rounded">
+                <div class="number-box fw-bold" style="font-size: 30px; color: orangered">2</div>
+                <h4 class="fw-bold" style="color: #041556; font-size: 20px;">Packing</h4>
+                <p>Require packing for kitchen fragile and antique items or wrapping service for furniture, our professional packer's team is here for you.</p>
+            </div>
+      </div>
+      <div class="col-md-3">
+        <div class="process-card shadow p-3 mb-5 rounded">
+          <div class="number-box fw-bold" style="font-size: 30px; color: orangered">3</div>
+          <h4 class="fw-bold" style="color: #041556; font-size: 20px;">Safely Moving</h4>
+          <p>We all have sentimental attachments with some items and want to deliver these items safely without damage. This is what SwiftMovers do.</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="process-card shadow p-3 mb-5 rounded">
+          <div class="number-box fw-bold" style="font-size: 30px; color: orangered">4</div>
+          <h4 class="fw-bold" style="color: #041556; font-size: 20px;">Door Step Delivery</h4>
+          <p>Now your booking is just a few clicks away. Click to the best option and get the best services.</p>
+        </div>
+      </div>
+    </div>
+    {# End of Four Process Card Containers #}
+  </div>
+</div>
+{# End of Process Section #}
+       <div id="ourFeatures" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4 fw-bold" style="color: orangered">Our Features</h2>
+            <p class="text-center" style="font-size: 20px">We provide hassle-free moving services to ensure our customers enjoy a more dependable and gratifying experience.</p>
+
+            <div class="row mt-4 " style="width: 70% ; margin: auto">
+                <!-- Feature 1 -->
+                <div class="col-md-4 mb-2 text-center">
+                    <div class="feature-circle">
+                        <h4 style="color: blue">Easy Booking</h4>
+                        <div class="orange-dot"></div>
+                    </div>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="col-md-4 mb-2 text-center">
+                    <div class="feature-circle">
+                        <h4 style="color: blue">Affordable Pricing</h4>
+                        <div class="orange-dot  "></div>
+                    </div>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="col-md-4 mb-2 text-center">
+                    <div class="feature-circle">
+                        <h4 style="color: blue">24/7 Service</h4>
+                        <div class="orange-dot"></div>
+                    </div>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="col-md-4 mb-2 text-center">
+                    <div class="feature-circle">
+                        <h4 style="color: blue">Moves all over Africa</h4>
+                        <div class="orange-dot"></div>
+                    </div>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="col-md-4 mb-2 text-center">
+                    <div class="feature-circle">
+                        <h4 style="color: blue">Email Notification</h4>
+                        <div class="orange-dot"></div>
+                    </div>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="col-md-4 mb-2 text-center">
+                    <div class="feature-circle">
+                        <h4 style="color: blue">Customer Support</h4>
+                        <div class="orange-dot"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+</div>
+<!-- Footer Section -->
+<footer class="footer-section  text-white" style="background-color:#041556; padding-bottom: 20px " >
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-md-3">
+                <h5 class="text-uppercase fw-bold">SendIt</h5>
+                <p>SendIt is a specialist moving company that deals with all Kenyan & International moves, packing & unpacking, cleaning, and furniture dismantling & reassembling services.</p>
+            </div>
+            <div class="col-md-3">
+                <h5 class="text-uppercase fw-bold">Services</h5>
+                <ul class="list-unstyled">
+                    <li>Furniture Removals</li>
+                    <li>House Removals</li>
+                    <li>Office Removals</li>
+                    <li>Packed/Parcel Items</li>
+                    <li>Cleaning Services</li>
+                    <li>Packing Services</li>
+                    <li>East Africa Moves</li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5 class="text-uppercase fw-bold">Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">Contacts Us</a></li>
+                    <li><a href="#">Our Services</a></li>
+                    <li><a href="#">Blog Posts</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">GDPR Privacy</a></li>
+                    <li><a href="#">Insurance Policies</a></li>
+                    <li><a href="#">Inventory List</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-3">
+                <h5 class="text-uppercase fw-bold">Contact us</h5>
+                <p>Head Office: 04 Sydenham Road, SE26 5QE, UpperHill Nairobi.</p>
+                <p>Email: info@sendit.co.ke</p>
+                <p>Phone: 0208 0048115</p>
+                <p>0208 0048117</p>
+                <p>07985 181863</p>
+            </div>
+        </div>
+    </div>
+
+    <hr style="border-color: #b60c20; width: 90%; height: 8px; margin: 20px auto 0;">
+
+
+    <hr style="border-color: #f6f5f5; width: 90%; height: 3px; margin:  auto;">
+
+    <!-- Copyright Notice -->
+    <p class="text-center">Copyright © 2023 Send It. All rights reserved.</p>
+</footer>
+
+
+</body>
+</html>

@@ -19,8 +19,8 @@
 <body>
 {#navbar section#}
 <div id="main" style="padding: 10px; background-color: #f8f9fa ">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="height: 80px;">
-    <div class="container-fluid">
+ <nav class="navbar navbar-expand-lg navbar-light bg-light" style="height: 80px;">
+   <div class="container-fluid">
     <a class="navbar-brand" href="#" style="font-size: 28px; font-weight: bold; color: #ef4410; padding-right: 20px;"><i class="bi bi-box"></i> SendIt</a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,13 +30,13 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link active fw-bold" aria-current="page" href="#" style="color: blue; padding: 10px;font-size: 18px;">Home</a>
+          <a class="nav-link active fw-bold" aria-current="page" href=" {% url 'index' %}]" style="color: blue; padding: 10px;font-size: 18px;">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link fw-bold" href="{% url 'about' %}" style="color: blue; padding: 10px;font-size: 18px;">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link fw-bold" href="#" style="color: blue; padding: 10px;font-size: 18px;">Services</a>
+          <a class="nav-link fw-bold" href="{% url 'services' %}" style="color: blue; padding: 10px;font-size: 18px;">Services</a>
         </li>
           <li class="nav-item">
           <a class="nav-link fw-bold" href="#" style="color: blue; padding: 10px;font-size: 18px;">Transporters</a>

@@ -32,13 +32,13 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link active fw-bold" aria-current="page" href="#" style="color: blue; padding: 10px;font-size: 18px;">Home</a>
+          <a class="nav-link active fw-bold" aria-current="page" href="{% url 'index' %}" style="color: blue; padding: 10px;font-size: 18px;">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link fw-bold" href="{% url 'about' %}" style="color: blue; padding: 10px;font-size: 18px;">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link fw-bold" href="#" style="color: blue; padding: 10px;font-size: 18px;">Services</a>
+          <a class="nav-link fw-bold" href="{% url 'services' %}" style="color: blue; padding: 10px;font-size: 18px;">Services</a>
         </li>
         <li class="nav-item">
           <a class="nav-link fw-bold" href="#" style="color: blue; padding: 10px;font-size: 18px;">Transporters</a>
@@ -145,7 +145,7 @@
 
 
 </div>{#join end#}
-    <div id="about" style=" width: 90%; margin: auto">
+    <div id="about" style=" width: 100%; margin: auto">
     <div class="about-us-section">
     <div class="container">
         <h3 class="display-4 fw-bold" style="color: orangered; font-size: 30px;text-align: left; padding-top: 30px; padding-bottom: 20px">Our Principles</h3>
