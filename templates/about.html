@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>About</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'about.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+{#    <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">#}
+
+    <script src=" {% static 'js/bootstrap.min.js' %}"></script>
+    {% load bootstrap_icons %}
+
+
+
+</head>
+<body>
+<div id="main">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="height: 80px;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#" style="font-size: 28px; font-weight: bold; color: #ef4410; padding-right: 20px;">
+      <i class="bi bi-box"></i> SendIt
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link active fw-bold" aria-current="page" href="#" style="color: blue; padding: 10px;font-size: 18px;">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fw-bold" href="{% url 'about' %}" style="color: blue; padding: 10px;font-size: 18px;">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fw-bold" href="#" style="color: blue; padding: 10px;font-size: 18px;">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fw-bold" href="#" style="color: blue; padding: 10px;font-size: 18px;">Transporters</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle fw-bold" style="color: blue; padding: 10px;font-size: 18px;" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Account
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" style="color: blue; padding: 10px;font-size: 18px;" href="#">Customer</a></li>
+            <li><a class="dropdown-item" style="color: blue; padding: 10px;font-size: 18px;" href="#">Driver</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="d-flex">
+      <button class="btn btn-outline-success rounded-pill mx-5 fw-bold" style="margin-right: 10px; margin-left: 40px">Book Delivery</button>
+      <button class="btn btn-outline-primary rounded-pill mx-3 fw-bold" style="margin-right: 10px;">Signup</button>
+      <button class="btn btn-outline-primary rounded-pill mx-3 fw-bold" style="margin-right: 10px;">Login</button>
+    </div>
+  </div>
+</nav>
+{#end of navbar section#}
+{#welcome section#}
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h2 class="fw-bold" style="color: orangered; padding-bottom: 10px">Welcome To SendIt</h2>
+      <h4 class="fw-bold" style="color:#041556; padding-bottom: 30px"> SendIt is a specialist moving company that handles all African moves, packing & unpacking, cleaning, and furniture dismantling & reassembling services.</h4>
+    </div>
+  </div>
+
+  <div class="row" style="width: 110%" >
+    <div class="col-md-6">
+
+      <p style=" font-size: 16px; text-align: left">
+        Are you in search of a removal company that can transport your possessions to a new destination within Kenya or East Africa? Or perhaps you require assistance with packing, unpacking, furniture dismantling, or assembly during your relocation?
+          <br>
+          <br>
+        Don't hesitate to reach out to SendIt, and we will tailor an affordable price specifically to your requirements. We alleviate the stress associated with moving by offering a comprehensive solution to meet all your relocation needs.
+          <br>
+          <br>
+        Our aim is to allow you to unwind, savor the moving journey, and settle into your new residence promptly upon arrival. Whether you need assistance with cleaning your current home or require a team to pack your belongings a few days ahead of your move, our experts are here to accommodate your unique needs.
+          <br>
+          <br>
+        Rest assured, our professionals possess the expertise to transport your possessions from point A to point B in impeccable condition. We specialize in securely packing various items, leaving no room for any potential damage during transit.
+      </p>
+    </div>
+
+    <div class="col-md-6">
+      <img src="{% static 'images/tailor2.jpg' %}" alt="Welcome Image" class="img-fluid" style="width: 110% ; height: 400px; border-radius: 2%">
+    </div>
+  </div>
+</div>
+
+{# principle#}
+
+    <div id="about" style=" width: 100%; margin: auto">
+    <div class="about-us-section">
+    <div class="container">
+        <h3 class="display-4 fw-bold" style="color: orangered; font-size: 30px;text-align: left; padding-top: 30px; padding-bottom: 20px">Our Principles</h3>
+        <h2 style="color: #270796 ;font-weight: bold"> What We Stand For</h2>
+
+        <p class="lead fw-bold" style="text-align: left; padding-top: 10px">At the heart of Send It lies the fusion of logistical proficiency, steadfast dedication, a forward-thinking attitude, and a customer-focused approach. This synergy is the foundation for achieving consistently dependable deliveries, punctual and reliable, without fail.</p>
+
+        {# Three Card Containers #}
+        <div class="row" style="padding: 40px">
+            <div class="col-md-4">
+                <div class="card-container bg-light shadow p-3 mb-5 rounded" style="padding: 20px; text-align: center">
+                    {% bs_icon 'check-circle-fill'  size='3rem' color='orange'%}
+                    <h3 class="fw-bold" style="color: blue; font-size: 24px; text-align:center; padding-top: 15px">Reliable</h3>
+                    <p style="text-align: center">Tap into the fast network of trusted transporters across Kenya and East Africa to deliver your goods every time on time.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card-container bg-light shadow p-3 mb-5 rounded" style="padding: 20px; text-align: center" >
+                    {% bs_icon 'check-circle-fill'  size='3rem' color='orange'%}
+                    <h3 class="fw-bold" style="color: blue; font-size: 24px; text-align: center; padding-top: 15px">Efficient</h3>
+                    <p style="text-align: center;">Optimize supply chains with our efficient network of trusted transporters across Kenya for efficient delivery services.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card-container bg-light  shadow p-3 mb-5 rounded" style="padding: 20px ;text-align: center">
+                    {% bs_icon 'check-circle-fill'  size='3rem' color='orange'%}
+                    <h3 class="fw-bold" style="color: blue; font-size: 24px; text-align: center; padding-top: 15px">Working Capital</h3>
+                    <p style="text-align: center">Customer-Specific payment terms mean you don't have to pay individual drivers and costs, get a consolidated bill instead.</p>
+                </div>
+            </div>
+        </div>
+        {# End of Three Card Containers #}
+    </div>
+</div>
+{# End of About Us Section #}
+{#joinourteam#}
+    <div id="join" style=" text-align: center; width: 70%; margin: auto; height: 250px  " >
+        <h2 style="color: orangered; font-weight: bold">Join Our Team </h2>
+        <p style="font-weight: normal">Our company is experiencing rapid growth and is continuously seeking individuals who are passionate about driving positive change. If you believe you could be a valuable addition to our team and want to be part of a dynamic work environment that fosters creativity and innovation, we encourage you to submit your CV. Embrace the
+            opportunity to contribute to our mission of making a difference
+            in the world, one step at a time.</p>
+        <button class="btn btn-primary rounded-3 " style="width: 10%"> Join Us</button>
+
+    </div>
+
+
+</div>{#join end#}
+    <div id="about" style=" width: 90%; margin: auto">
+    <div class="about-us-section">
+    <div class="container">
+        <h3 class="display-4 fw-bold" style="color: orangered; font-size: 30px;text-align: left; padding-top: 30px; padding-bottom: 20px">Our Principles</h3>
+        <h2 style="color: #270796 ;font-weight: bold"> What We Stand For</h2>
+
+        <p class="lead fw-bold" style="text-align: left; padding-top: 10px">At the heart of Send It lies the fusion of logistical proficiency, steadfast dedication, a forward-thinking attitude, and a customer-focused approach. This synergy is the foundation for achieving consistently dependable deliveries, punctual and reliable, without fail.</p>
+
+        {# Three Card Containers #}
+        <div class="row" style="padding: 40px">
+            <div class="col-md-3">
+                <div class="card-container bg-light shadow p-3 mb-5 rounded" style="padding: 20px; text-align: center ; height: 550px" >
+                    <img src="{% static 'images/cop1.webp' %}" alt="" style="width: 40%; border-radius: 50%; height: 100px">
+                    <h3 class="fw-bold" style="color: orangered; font-size: 24px; text-align: center; padding-top: 15px">Mariam Ali</h3>
+                    <h3 class="fw-bold" style="color: black; font-size: 24px; text-align: center; padding-top: 15px">Managing Director</h3>
+                    <p style="text-align: center;">At SendIt, we don't just move belongings; we move lives. With every box we pack and every mile we drive, we understand the importance of your journey. Our commitment goes beyond transporting your possessions; it's about making your move stress-free and memorable.</p>
+                    <h3 class="fw-bold" style="color: blue; font-size: 24px; text-align: center; padding-top: 15px">Years of experience 4</h3>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card-container bg-light shadow p-3 mb-5 rounded" style="padding: 20px; text-align: center ; height: 550px"  >
+                    <img src="{% static 'images/cop2.webp' %}" alt="" style="width: 40%; border-radius: 50%; height: 100px">
+                    <h3 class="fw-bold" style="color: orangered; font-size: 24px; text-align: center; padding-top: 15px">Sharungi Omari</h3>
+                    <h3 class="fw-bold" style="color: black; font-size: 24px; text-align: center; padding-top: 15px">Manager Logistics</h3>
+                    <p style="text-align: center;">We promise a seamless move, where efficiency meets care. Your belongings are not just items; they're precious memories and valued possessions. We handle them with the utmost respect and attention, ensuring they reach their destination safely and on time.</p>
+                    <h3 class="fw-bold" style="color: blue; font-size: 24px; text-align: center; padding-top: 15px">Years of experience 3</h3>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card-container bg-light shadow p-3 mb-5 rounded" style="padding: 20px; text-align: center ; height: 550px" >
+                    <img src="{% static 'images/cop3.webp' %}" alt="" style="width: 40%; border-radius: 50%; height: 100px">
+                    <h3 class="fw-bold" style="color: orangered; font-size: 24px; text-align: center; padding-top: 15px">Joyline Joy</h3>
+                    <h3 class="fw-bold" style="color: black; font-size: 24px; text-align: center; padding-top: 15px">Manager Customer Relations</h3>
+                    <p style="text-align: center;">We believe in open communication, transparency, and personalized service. Our team SendIt is here to listen to your needs, answer your questions, and tailor our services to match your expectations perfectly</p>
+
+
+                    <h3 class="fw-bold" style="color: blue; font-size: 24px; text-align: center; padding-top: 15px">Years of experience 4</h3>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card-container bg-light shadow p-3 mb-5 rounded" style="padding: 20px; text-align: center ; height: 550px" >
+                    <img src="{% static 'images/cop4.jpg' %}" alt="" style="width: 40%; border-radius: 50%; height: 100px">
+                    <h3 class="fw-bold" style="color: orangered; font-size: 24px; text-align: center; padding-top: 15px">Kibada Said</h3>
+                    <h3 class="fw-bold" style="color: black; font-size: 24px; text-align: center; padding-top: 15px">Human Resource Manager</h3>
+                    <p style="text-align: center;">At SendIt, we don't just move belongings; we move lives. With every box we pack and every mile we drive, we understand the importance of your journey. Our commitment goes beyond transporting your possessions; it's about making your move stress-free and memorable.</p>
+                    <h3 class="fw-bold" style="color: blue; font-size: 24px; text-align: center; padding-top: 15px">Years of experience 4</h3>
+                </div>
+            </div>
+        </div>
+        {# End of Three Card Containers #}
+    </div>
+</div>
+{# End of About Us Section #}
+   <div class="contact-form-section" style="padding: 80px 20px; text-align: center; width: 60%; margin: auto">
+    <h2 class="display-4 fw-bold" style="color: #041556; font-size: 36px;">Contact Us</h2>
+    <p class="lead fw-bold" style="color: #270796; font-size: 20px;">Get In Touch</p>
+    <p>You Can Reach Us Anytime at <b class="b" style="color: orangered">+254 111 044 600</b></p>
+{#start contact#}
+    <div class="row justify-content-evenly" >
+        <div class="col-md-6" style="max-width: 50% ;">
+            <form class="form form-control">
+                <h3 class="fw-bold" style="color:orangered; font-size: 28px;  margin-bottom: 20px; text-align: center; ">Get In touch</h3>
+                <div class="mb-3" style="text-align: left">
+                    <label for="name" class="form-label fw-bold" style="color: #041556; font-size: 18px; text-align: left;">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                </div>
+                <div class="mb-3" style="text-align: left">
+                    <label for="email" class="form-label fw-bold" style="color: #041556; font-size: 18px; text-align: left;">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                </div>
+                <div class="mb-3" style="text-align: left">
+                    <label for="phone" class="form-label fw-bold" style="color: #041556; font-size: 18px; text-align: left;">Phone Number</label>
+                    <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number">
+                </div>
+                <div class="mb-3" style="text-align: left">
+                    <label for="additionalInfo" class="form-label fw-bold" style="color: #041556; font-size: 18px; ">More Information</label>
+                    <textarea class="form-control" id="additionalInfo" rows="3" placeholder="Enter additional information"></textarea>
+                </div>
+                <button class="btn btn-primary btn-lg w-50 ">Submit</button>
+            </form>
+        </div>
+        <div class="col-md-6" style="min-height:500px">
+            <!-- Image Goes Here -->
+            <img src="{% static 'images/im.webp' %}" alt="Contact Image" class="img-fluid" style="height: 520px; width: 100%;">
+        </div>
+    </div>
+</div>
+{#        end contact#}
+
+<!-- Footer Section -->
+<footer class="footer-section  text-white" style="background-color:#041556; padding-bottom: 20px " >
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-md-3">
+                <h5 class="text-uppercase fw-bold">SendIt</h5>
+                <p>SendIt is a specialist moving company that deals with all Kenyan & International moves, packing & unpacking, cleaning, and furniture dismantling & reassembling services.</p>
+            </div>
+            <div class="col-md-3">
+                <h5 class="text-uppercase fw-bold">Services</h5>
+                <ul class="list-unstyled">
+                    <li>Furniture Removals</li>
+                    <li>House Removals</li>
+                    <li>Office Removals</li>
+                    <li>Packed/Parcel Items</li>
+                    <li>Cleaning Services</li>
+                    <li>Packing Services</li>
+                    <li>East Africa Moves</li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5 class="text-uppercase fw-bold ">Quick Links</h5>
+                <ul >
+                    <li><a href="#" style="color: white; text-decoration: none;">Contacts Us</a></li>
+                    <li><a href="#" style="color: white; text-decoration: none;">Our Services</a></li>
+                    <li><a href="#" style="color: white; text-decoration: none;">Blog Posts</a></li>
+                    <li><a href="#" style="color: white; text-decoration: none;">Terms & Conditions</a></li>
+                    <li><a href="#" style="color: white; text-decoration: none;">GDPR Privacy</a></li>
+                    <li><a href="#" style="color: white; text-decoration: none;">Insurance Policies</a></li>
+                    <li><a href="#" style="color: white; text-decoration: none;">Inventory List</a></li>
+
+                </ul>
+            </div>
+
+            <div class="col-md-3">
+                <h5 class="text-uppercase fw-bold">Contact us</h5>
+                <p>Head Office: 04 Sydenham Road, SE26 5QE, UpperHill Nairobi.</p>
+                <p>Email: info@sendit.co.ke</p>
+                <p>Phone: 0208 0048115</p>
+                <p>0208 0048117</p>
+                <p>07985 181863</p>
+            </div>
+        </div>
+    </div>
+
+    <hr style="border-color: #b60c20; width: 90%; height: 8px; margin: 20px auto 0;">
+
+
+    <hr style="border-color: #f6f5f5; width: 90%; height: 3px; margin:  auto;">
+
+    <!-- Copyright Notice -->
+    <p class="text-center">Copyright © 2023 Send It. All rights reserved.</p>
+</footer>
+</div>
+</div>
+</body>
+</html>
