@@ -9,12 +9,7 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'index.css' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-
     <script src=" {% static 'js/bootstrap.min.js' %}"></script>
-
-
-
-
 </head>
 <body>
 {#navbar section#}
@@ -26,11 +21,10 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link active fw-bold" aria-current="page" href=" {% url 'index' %}]" style="color: blue; padding: 10px;font-size: 18px;">Home</a>
+          <a class="nav-link active fw-bold" aria-current="page" href=" {% url 'index' %}" style="color: blue; padding: 10px;font-size: 18px;">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link fw-bold" href="{% url 'about' %}" style="color: blue; padding: 10px;font-size: 18px;">About</a>
@@ -39,7 +33,7 @@
           <a class="nav-link fw-bold" href="{% url 'services' %}" style="color: blue; padding: 10px;font-size: 18px;">Services</a>
         </li>
           <li class="nav-item">
-          <a class="nav-link fw-bold" href="#" style="color: blue; padding: 10px;font-size: 18px;">Transporters</a>
+          <a class="nav-link fw-bold" href="{% url 'transporters' %}" style="color: blue; padding: 10px;font-size: 18px;">Transporters</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle fw-bold" style="color: blue; padding: 10px;font-size: 18px;" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -52,12 +46,10 @@
         </li>
       </ul>
     </div>
-
     <div class="d-flex">
       <button class="btn btn-outline-success rounded-pill mx-5 fw-bold" style=" margin-right: 10px; margin-left: 40px">Book Delivery</button>
       <button class="btn btn-outline-primary rounded-pill mx-3 fw-bold" style=" margin-right: 10px;">Signup</button>
       <button class="btn btn-outline-primary rounded-pill mx-3 fw-bold" style=" margin-right: 10px;">Login</button>
-
     </div>
   </div>
 </nav>
@@ -71,14 +63,12 @@
   </div>
 </div>
 {# End of Hero section #}
-
 {# About Us Section #}
 <div id="about" style="background-color: #f8f9fa; width: 80%; margin: auto">
     <div class="about-us-section">
     <div class="container">
         <h2 class="display-4 fw-bold" style="color: orangered; font-size: 36px;text-align: left;">Why Us?</h2>
         <p class="lead fw-bold" style="color: #270796; font-size: 20px;text-align: left;">Bringing Trust and Transparency to Transport</p>
-
         {# Three Card Containers #}
         <div class="row">
             <div class="col-md-4">
@@ -104,8 +94,6 @@
     </div>
 </div>
 {# End of About Us Section #}
-
-
 {# Process Section #}
 <div class="process-section">
   <div class="container">
@@ -147,7 +135,6 @@
   </div>
 </div>
 {# End of Process Section #}
-
 {# Tailored Section #}
 <div class="tailored-section">
     <div class="tailored-text">
@@ -155,14 +142,12 @@
         <h3 class="fw-bold" style="color: #270796; font-size: 20px; padding: 10px;text-align: left;">Customized for Your Needs</h3>
         <p class="lead fw-light" style="color: #270796; font-size: 20px; text-align: left">Got a specific need? SendIt provides comprehensive transport solutions that cater to businesses across various industries. Our platform provides access to a wide range of vehicles, enabling us to handle shipments of all sizes.</p>
         <button class="btn btn-primary btn-lg " style="align-items:flex-end">Get A Quote</button>
-
     </div>
     <div class="tailored-img">
         <img src="{% static 'images/tailor3.jpg' %}" alt="Tailored Image"  style="border-radius: 5%; height: 480px; padding-bottom: 10px;">
     </div>
 </div>
 {# End of Tailored Section #}
-
 {# Blog Section #}
 <div class="blog-section">
     <div class="container">
@@ -214,7 +199,6 @@
 <div class="strengths-section" style="background-color: #f8f9fa; padding: 80px 20px; text-align: center;">
     <h2 class="display-4 fw-bold" style="color: #041556; font-size: 36px;">Our Strengths</h2>
     <p class="lead fw-bold" style="color: #270796; font-size: 20px;">Which Make Us The Most Preferable Moving Brand</p>
-
     <div class="row justify-content-around">
         <div class="col-md-4 strength-item" style="margin-bottom: 20px;">
             <h2 class="fw-bold" style="color:orangered; font-size: 32px;">13+</h2>
@@ -286,7 +270,6 @@
         </div>
     </div>
 </div>
-
 <!-- Footer Section -->
 <footer class="footer-section  text-white" style="background-color:#041556; padding-bottom: 20px " >
     <div class="container py-5">
@@ -319,7 +302,6 @@
                     <li><a href="#">Inventory List</a></li>
                 </ul>
             </div>
-
             <div class="col-md-3">
                 <h5 class="text-uppercase fw-bold">Contact us</h5>
                 <p>Head Office: 04 Sydenham Road, SE26 5QE, UpperHill Nairobi.</p>
@@ -330,21 +312,12 @@
             </div>
         </div>
     </div>
-
     <hr style="border-color: #b60c20; width: 90%; height: 8px; margin: 20px auto 0;">
-
-
     <hr style="border-color: #f6f5f5; width: 90%; height: 3px; margin:  auto;">
-
     <!-- Copyright Notice -->
     <p class="text-center">Copyright © 2023 Send It. All rights reserved.</p>
 </footer>
-
-
 </div>
-
 {# End of Contact Form Section #}
-
-
 </body>
 </html>

@@ -7,3 +7,5 @@ def about(request):
     return render(request, 'about.html')
 def services(request):
     return render(request, 'services.html')
+def transporters(request):
+    return render(request, 'transporters.html')

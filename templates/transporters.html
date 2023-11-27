@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Transporters</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'transporters.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script src=" {% static 'js/bootstrap.min.js' %}"></script>
+
+</head>
+<body>
+<div id="main" style="padding: 5px">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="height: 80px;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#" style="font-size: 28px; font-weight: bold; color: #ef4410; padding-right: 20px;">
+      <i class="bi bi-box"></i> SendIt
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link active fw-bold" aria-current="page" href="{% url 'index' %}" style="color: blue; padding: 10px;font-size: 18px;">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fw-bold" href="{% url 'about' %}" style="color: blue; padding: 10px;font-size: 18px;">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fw-bold" href="{% url 'services' %}" style="color: blue; padding: 10px;font-size: 18px;">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fw-bold" href="{% url 'transporters' %}" style="color: blue; padding: 10px;font-size: 18px;">Transporters</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle fw-bold" style="color: blue; padding: 10px;font-size: 18px;" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Account
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" style="color: blue; padding: 10px;font-size: 18px;" href="#">Customer</a></li>
+            <li><a class="dropdown-item" style="color: blue; padding: 10px;font-size: 18px;" href="#">Driver</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="d-flex">
+      <button class="btn btn-outline-success rounded-pill mx-5 fw-bold" style="margin-right: 10px; margin-left: 40px">Book Delivery</button>
+      <button class="btn btn-outline-primary rounded-pill mx-3 fw-bold" style="margin-right: 10px;">Signup</button>
+      <button class="btn btn-outline-primary rounded-pill mx-3 fw-bold" style="margin-right: 10px;">Login</button>
+    </div>
+  </div>
+</nav>
+{# End of nav#}
+ <div class="hero-section">
+  <div class="container">
+    <h1 class="display-2 fw-bold" style="color: #f6f5f5; font-size: 42px">Your Reliable <br> Logistics Partner in <br> East Africa</h1>
+    <p class="lead fw-bold " style="color: white; font-size: 20px" >Get the assurance of on-time deliveries every time,  with <br>tailored, transparent & reliable logistics solutions by SendIt.<br> Give us a Call on: +2547111000111</p>
+    <button class="btn btn-primary btn-lg ">Learn More</button>
+  </div>
+</div>
+    <div class="container-lg" style="padding: 20px">
+    <div class="row" >
+        <div class="col-md-6">
+            <!-- Tailored Image -->
+            <div class="tailored-img" style="max-width: 700px;">
+                <img src="{% static 'images/driver.jpg' %}" alt="Tailored Image" style="border-radius: 15px; width: 100%;">
+            </div>
+        </div>
+        <div class="col-md-6" style="padding: 20px">
+            <!-- Tailored Text -->
+            <div class="tailored-text" style="max-width: 800px;">
+                <h2 class="display-4 fw-bold" style="color: orangered; font-size: 36px; padding-bottom: 10px; text-align: left;">Why Use Us</h2>
+                <h3 class="fw-bold" style="color: #270796; font-size: 20px; padding: 10px; text-align: left;">Benefits and More</h3>
+                <p class="lead fw-light" style="color: #270796; font-size: 20px; text-align: left;">Experience the growth-enabling benefits of joining our transporters’ network. Get access to more new clients and contracts, rest assured you’ll get paid, and even make use of upfront fuel advances to ensure you can deliver on time, every time.</p>
+
+            </div>
+        </div>
+    </div>
+
+        <div class="row" style="padding: 40px">
+        <!-- Cards Section -->
+        <div class="col-md-4">
+            <div class="card-container bg-white shadow p-3 mb-5 rounded" style="height: 200px ; width:400px">
+                <h3 class="fw-bold" style="color: #0c46b6; font-size: 24px;">Get Paid Immediately</h3>
+                <p style="padding: 15px">Our fast and hassle-free payment processing means you never have to wait for your money – as soon as you show us proof of delivery, you get paid.</p>
+            </div>
+        </div>
+        <div class="col-md-4 ">
+            <div class="card-container bg-white shadow p-3 mb-5 rounded" style="height: 200px; width: 400px" >
+                <h3 class="fw-bold" style="color: #0c46b6; font-size: 24px;">Access to More Work</h3>
+                <p style="padding: 15px">We give you access to a broader range of job opportunities, with return trips, and we handle scheduling on your behalf well ahead of time.</p>
+            </div>
+        </div>
+        <div class="col-md-4 " >
+            <div class="card-container bg-white shadow p-3 mb-5 rounded" style="height: 200px ; width: 400px">
+                <h3 class="fw-bold" style="color: #0c46b6; font-size: 24px;">Fuel Advances</h3>
+                <p style="padding: 15px">You don’t have to worry about upfront fuel costs; we will give you fuel advances so you can keep your operations running smoothly.</p>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+{# Contact Form Section #}
+<div class="contact-form-section" style="padding: 80px 20px; text-align: center; width: 60%; margin: auto">
+    <h2 class="display-4 fw-bold" style="color: orangered; font-size: 22px;">Get Started</h2>
+    <p class="lead fw-bold" style="color: #270796; font-size: 30px;">Drive With Us</p>
+    <p>You Can Reach Us Anytime at <b class="b" style="color: orangered">+254 111 044 600</b></p>
+
+    <div class="row justify-content-evenly" >
+        <div class="col-md-6" style="max-width: 50% ">
+            <form class="form form-control">
+                <h3 class="fw-bold" style=" color:#0c46b6; font-size: 28px; text-align: left; margin-bottom: 20px; text-align: center; ">Drive With Us</h3>
+                <div class="mb-3" style="text-align: left">
+                    <label for="name" class="form-label fw-bold" style="color: #041556; font-size: 18px; text-align: left;">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                </div>
+                <div class="mb-3" style="text-align: left">
+                    <label for="email" class="form-label fw-bold" style="color: #041556; font-size: 18px; text-align: left;">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                </div>
+                <div class="mb-3" style="text-align: left">
+                    <label for="phone" class="form-label fw-bold" style="color: #041556; font-size: 18px; text-align: left;">Phone Number</label>
+                    <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number">
+                </div>
+                <div class="mb-3" style="text-align: left">
+                    <label for="additionalInfo" class="form-label fw-bold" style="color: #041556; font-size: 18px; ">More Information</label>
+                    <textarea class="form-control" id="additionalInfo" rows="3" placeholder="Enter additional information"></textarea>
+                </div>
+                <button class="btn btn-primary btn-lg w-50 ">Submit</button>
+            </form>
+        </div>
+        <div class="col-md-6" style="min-height:500px">
+            <!-- Image Goes Here -->
+            <img src="{% static 'images/phone.avif' %}" alt="Contact Image" class="img-fluid" style="height: 500px; width: 100%;">
+        </div>
+    </div>
+</div>
+<!-- Footer Section -->
+<footer class="footer-section  text-white" style="background-color:#041556; padding-bottom: 20px " >
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-md-3">
+                <h5 class="text-uppercase fw-bold">SendIt</h5>
+                <p>SendIt is a specialist moving company that deals with all Kenyan & International moves, packing & unpacking, cleaning, and furniture dismantling & reassembling services.</p>
+            </div>
+            <div class="col-md-3">
+                <h5 class="text-uppercase fw-bold">Services</h5>
+                <ul class="list-unstyled">
+                    <li>Furniture Removals</li>
+                    <li>House Removals</li>
+                    <li>Office Removals</li>
+                    <li>Packed/Parcel Items</li>
+                    <li>Cleaning Services</li>
+                    <li>Packing Services</li>
+                    <li>East Africa Moves</li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5 class="text-uppercase fw-bold">Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">Contacts Us</a></li>
+                    <li><a href="#">Our Services</a></li>
+                    <li><a href="#">Blog Posts</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">GDPR Privacy</a></li>
+                    <li><a href="#">Insurance Policies</a></li>
+                    <li><a href="#">Inventory List</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5 class="text-uppercase fw-bold">Contact us</h5>
+                <p>Head Office: 04 Sydenham Road, SE26 5QE, UpperHill Nairobi.</p>
+                <p>Email: info@sendit.co.ke</p>
+                <p>Phone: 0208 0048115</p>
+                <p>0208 0048117</p>
+                <p>07985 181863</p>
+            </div>
+        </div>
+    </div>
+    <hr style="border-color: #b60c20; width: 90%; height: 8px; margin: 20px auto 0;">
+    <hr style="border-color: #f6f5f5; width: 90%; height: 3px; margin:  auto;">
+    <!-- Copyright Notice -->
+    <p class="text-center">Copyright © 2023 Send It. All rights reserved.</p>
+</footer>
+
+
+
+
+
+
+</body>
+</html>

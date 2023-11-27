@@ -1,0 +1,18 @@
+.hero-section {
+    background-image: url("https://img.freepik.com/free-photo/truck-driver-occupation-service_342744-1317.jpg?size=626&ext=jpg&ga=GA1.1.818066270.1700469852&semt=ais ");
+    background-size: cover;
+    background-position: center;
+    color: #efebeb;
+    text-align: left;
+    padding: 100px 20px;
+    max-height: 600px;
+    max-width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-section h1,
+.hero-section p,
+.hero-section button {
+    margin: 24px -180px; /* Adjust the margin as needed */
+}
