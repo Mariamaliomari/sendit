@@ -52,7 +52,7 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link active fw-bold" aria-current="page" href="{% url 'index' %}" style="color: blue; padding: 10px;font-size: 18px;">Home</a>
+                        <a class="nav-link active fw-bold" aria-current="page" href="{% url 'home' %}" style="color: blue; padding: 10px;font-size: 18px;">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link fw-bold" href="{% url 'about' %}" style="color: blue; padding: 10px;font-size: 18px;">About</a>
@@ -63,21 +63,24 @@
                     <li class="nav-item">
                         <a class="nav-link fw-bold" href="{% url 'transporters' %}" style="color: blue; padding: 10px;font-size: 18px;">Transporters</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle fw-bold" style="color: blue; padding: 10px;font-size: 18px;" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Account
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" style="color: blue; padding: 10px;font-size: 18px;" href="#">Customer</a></li>
-                            <li><a class="dropdown-item" style="color: blue; padding: 10px;font-size: 18px;" href="#">Driver</a></li>
-                        </ul>
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold" href="{% url 'dashbord' %}" style="color: blue; padding: 10px;font-size: 18px;">Book Delivery</a>
                     </li>
+{#                    <li class="nav-item dropdown">#}
+{#                        <a class="nav-link dropdown-toggle fw-bold" style="color: blue; padding: 10px;font-size: 18px;" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">#}
+{#                            Account#}
+{#                        </a>#}
+{#                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">#}
+{#                            <li><a class="dropdown-item" style="color: blue; padding: 10px;font-size: 18px;" href="#">Customer</a></li>#}
+{#                            <li><a class="dropdown-item" style="color: blue; padding: 10px;font-size: 18px;" href="#">Driver</a></li>#}
+{#                        </ul>#}
+{#                    </li>#}
                 </ul>
             </div>
 
             <div class="d-flex">
-                <button class="btn btn-outline-success rounded-pill mx-5 fw-bold" style="margin-right: 10px; margin-left: 40px">Book Delivery</button>
-                <button class="btn btn-outline-primary rounded-pill mx-3 fw-bold" style="margin-right: 10px;">Signup</button>
+{#                <button class="btn btn-outline-success rounded-pill mx-5 fw-bold" style="margin-right: 10px; margin-left: 40px">Book Delivery</button>#}
+                <button class="btn btn-outline-success rounded-pill mx-3 fw-bold" style="margin-right: 10px;">Signup</button>
                 <button class="btn btn-outline-primary rounded-pill mx-3 fw-bold" style="margin-right: 10px;">Login</button>
             </div>
         </div>

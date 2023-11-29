@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Products</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</head>
+<body>
+<h1 class="text-center">My Bookings</h1>
+
+<table class="table table-info">
+    <thead class="table-dark">
+        <tr>
+            <th>Date</th>
+            <th>Address</th>
+            <th>Destination</th>
+            <th>property type</th>
+            <th>Vehicle Size</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+    {% for booking in bookings %}
+    <tr>
+        <td>{{ booking.date }}</td>
+        <td>{{ booking.address }}</td>
+        <td>{{ booking.destination }}</td>
+        <td>{{ booking.property }}</td>
+        <td>{{ booking.vehicle }}</td>
+        <td>
+            <a href="/edit/{{ booking.id }}" class="btn btn-warning">EDIT</a>
+            <a href="/delete/{{ booking.id }}" class="btn btn-danger">DELETE</a>
+{#            <a href="{% url 'pay' %}" class="btn btn-success">PAY</a>#}
+
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<br>
+
+<center><a href="{% url 'startbook' %}" class="btn btn-primary">Start a new booking</a></center>
+</body>
+</html>

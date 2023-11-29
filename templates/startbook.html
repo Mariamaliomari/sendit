@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Start Booking</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</head>
+<body>
+<h1 class="text-center">Start booking</h1>
+<form method="post" action="/add/">
+    {% csrf_token %}
+    <div class="row mb-3" >
+        <div class="col">
+            <label for="date">Date</label>
+        </div>
+        <div class="col">
+            {{ form.date }}
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col">
+            <label for="address">Address</label>
+        </div>
+        <div class="col">
+            {{ form.address }}
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col">
+            <label for="destination"> Destination</label>
+        </div>
+        <div class="col">
+            {{ form.destination }}
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col">
+            <label for="property"> Property type</label>
+        </div>
+        <div class="col">
+            {{ form.property}}
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col">
+            <label for="vehicle"> Vehicle type</label>
+        </div>
+        <div class="col">
+            {{ form.vehicle }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button type="submit" class=" btn btn-primary">Pay</button>
+        </div>
+        <div class="col">
+            <a href="{% url 'mybookings' %}" class=" btn btn-warning">See Bookings</a>
+        </div>
+    </div>
+
+</form>
+
+</body>
+</html>
