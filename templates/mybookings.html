@@ -11,12 +11,13 @@
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
 </head>
 <body>
-<h1 class="text-center">My Bookings</h1>
+<h1 class="text-center" style="color: orangered; background-color: #041556; height: 70px;padding: 10px">My Bookings</h1>
 
-<table class="table table-info">
-    <thead class="table-dark">
+<table class="table t">
+    <thead class="table-=light" style="color: orangered">
         <tr>
             <th>Date</th>
+            <th>Time</th>
             <th>Address</th>
             <th>Destination</th>
             <th>property type</th>
@@ -29,12 +30,13 @@
     {% for booking in bookings %}
     <tr>
         <td>{{ booking.date }}</td>
+        <td>{{ booking.time }}</td>
         <td>{{ booking.address }}</td>
         <td>{{ booking.destination }}</td>
         <td>{{ booking.property }}</td>
         <td>{{ booking.vehicle }}</td>
         <td>
-            <a href="/edit/{{ booking.id }}" class="btn btn-warning">EDIT</a>
+{#            <a href="/edit/{{ booking.id }}" class="btn btn-warning">EDIT</a>#}
             <a href="/delete/{{ booking.id }}" class="btn btn-danger">DELETE</a>
 {#            <a href="{% url 'pay' %}" class="btn btn-success">PAY</a>#}
 

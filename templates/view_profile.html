@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile List</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+<body>
+
+{#<h1 class="text-center">User Profiles</h1>#}
+{##}
+{#<table class="table table-info">#}
+{#    <thead class="table-dark">#}
+{#        <tr>#}
+{#            <th>First Name</th>#}
+{#            <th>Last Name</th>#}
+{#            <th>Email</th>#}
+{#            <th>Phone Number</th>#}
+{#            <th>Bio</th>#}
+{#            <th>Address</th>#}
+{#            <th>Action</th>#}
+{#        </tr>#}
+{#    </thead>#}
+{##}
+{#    <tbody>#}
+{#    {% for profile in profiles %}#}
+{#    <tr>#}
+{#        <td>{{ profile.first_name }}</td>#}
+{#        <td>{{ profile.last_name }}</td>#}
+{#        <td>{{ profile.email }}</td>#}
+{#        <td>{{ profile.phone_number }}</td>#}
+{#        <td>{{ profile.bio }}</td>#}
+{#        <td>{{ profile.address }}</td>#}
+{#        <td>#}
+{#            <a href="{% url 'update_profile' profile.id %}" class="btn btn-warning">Update Profile</a>#}
+{#        </td>#}
+{#    </tr>#}
+{#    {% endfor %}#}
+{#    </tbody>#}
+{#</table>#}
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Your Profile</h1>
+  <p>First Name: {{ profile.first_name }}</p>
+  <p>Last Name: {{ profile.last_name }}</p>
+  <p>Email: {{ profile.email }}</p>
+  <p>Phone Number: {{ profile.phone_number }}</p>
+  <p>Bio: {{ profile.bio }}</p>
+  <p>Address: {{ profile.address }}</p>
+
+  <a href="{% url 'update_profile' %}" class="btn btn-primary">Update Profile</a>
+{% endblock %}
+
+</body>
+</html>

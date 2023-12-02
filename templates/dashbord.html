@@ -1,30 +1,4 @@
-{#<!DOCTYPE html>#}
-{#<html lang="en">#}
-{#<head>#}
-{#    <meta charset="UTF-8">#}
-{#    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">#}
-{#    <title>Document</title>#}
-{#    {% load static %}#}
-{#    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">#}
-{#    <script src="{% static 'js/bootstrap.min.js' %}"></script>#}
-{#    <style>#}
-{##}
-{##}
-{#        .container-fluid {#}
-{#            height: 100%;#}
-{#        }#}
-{##}
-{#        .sidebar-sticky {#}
-{#            height: 100%;#}
-{#        }#}
-{#    </style>#}
-{#</head>#}
-{#<body>#}
-{##}
-{#<div class="container-fluid">#}
-{#    <div class="row">#}
-{#        <nav class="col-md-2 d-none d-md-block bg-dark sidebar">#}
-{#            <div class="sidebar-sticky">#}
+
 {#                <ul class="nav flex-column">#}
 {#                    <li class="nav-item">#}
 {#                        <a class="nav-link active" href="#">#}
@@ -92,13 +66,13 @@
                             <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">User Dashboard</span> </a>
                         <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                             <li class="w-100" style="font-weight: lighter">
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">My Profile</span>  </a>
+                                <a href="{% url 'view_profile' %}" class="nav-link px-0"> <span class="d-none d-sm-inline">My Profile</span>  </a>
                             </li>
                             <li class="w-100" style="font-weight: lighter">
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Start Booking</span>  </a>
+                                <a href="{% url 'startbook' %}" class="nav-link px-0"> <span class="d-none d-sm-inline">Start Booking</span>  </a>
                             </li>
                             <li class="w-100" style="font-weight: lighter">
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">My bookings</span> </a>
+                                <a href="{% url 'mybookings' %}" class="nav-link px-0"> <span class="d-none d-sm-inline">My bookings</span> </a>
                             </li>
                         </ul>
                     </li>

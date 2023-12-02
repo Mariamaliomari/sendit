@@ -15,5 +15,13 @@ urlpatterns = [
     path('dashbord/', views.dashbord, name='dashbord'),
     path('addbooking/', views.startbook, name='startbook'),
     path('showbooking/', views.mybookings, name='mybookings'),
+    path('profile/', views.view_profile, name='view_profile'),
+    path('profile/update/', views.update_profile, name='update_profile'),
+
+
+
+    path('pay/',views.pay, name='pay'),
+    path('token/',views.token, name='token'),
+    path('stk/',views.stk, name='stk'),
 
 ]
