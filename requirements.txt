@@ -2,7 +2,7 @@ asgiref==3.7.2
 certifi==2023.11.17
 charset-normalizer==3.3.2
 defusedxml==0.7.1
-Django==4.2.7
+Django==5.0.4
 django-bootstrap-icons==0.8.6
 idna==3.4
 requests==2.31.0
