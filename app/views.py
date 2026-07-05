@@ -56,18 +56,63 @@ def dashbord(request):
 #     else:
 #         return render(request, 'login.html')
 
-
-
 def register(request):
-    if request.method =="POST":
-        user= User(firstname=request.POST['firstname'],lastname=request.POST['lastname'],
-                       email=request.POST['email'],username=request.POST['username'],
-                       password=request.POST['password'],
-                       )
+    if request.method == "POST":
+
+        firstname = request.POST.get("firstname")
+        lastname = request.POST.get("lastname")
+        email = request.POST.get("email")
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+
+        # Check for empty fields
+        if not all([firstname, lastname, email, username, password]):
+            return render(
+                request,
+                "register.html",
+                {"error": "All fields are required."}
+            )
+
+        # Check if username already exists
+        if User.objects.filter(username=username).exists():
+            return render(
+                request,
+                "register.html",
+                {"error": "Username already exists."}
+            )
+
+        # Check if email already exists
+        if User.objects.filter(email=email).exists():
+            return render(
+                request,
+                "register.html",
+                {"error": "Email already exists."}
+            )
+
+        user = User(
+            firstname=firstname,
+            lastname=lastname,
+            email=email,
+            username=username,
+            password=password,
+        )
+
         user.save()
-        return redirect('/')
-    else:
-        return render(request,'register.html')
+
+        return redirect("/")
+
+    return render(request, "register.html")
+
+# def register(request):
+#     if request.method =="POST":
+#         user= User(firstname=request.POST['firstname'],lastname=request.POST['lastname'],
+#                        email=request.POST['email'],username=request.POST['username'],
+#                        password=request.POST['password'],
+#                        )
+#         user.save()
+#         return redirect('/')
+#     else:
+#         return render(request,'register.html')
 
 def login(request):
     return render(request, 'login.html')
