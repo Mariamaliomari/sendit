@@ -4,4 +4,5 @@ requests==2.32.3
 whitenoise==6.7.0
 gunicorn==22.0.0
 django-bootstrap-icons==0.8.7
-dj-database-url  # optional, since you already hand-roll DATABASE_URL parsing
+dj-database-url
+Pillow
