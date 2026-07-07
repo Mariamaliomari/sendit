@@ -1,0 +1,202 @@
+{% comment %} {% load static %}
+{% load bootstrap_icons %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Sendit — Trusted Moving Made Simple{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sendit-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="{% url 'home' %}">{% bs_icon "box-seam" %} Sendit</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">Home</a></li>
+        <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}" href="{% url 'about' %}">About</a></li>
+        <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == 'services' %}active{% endif %}" href="{% url 'services' %}">Services</a></li>
+        <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == 'transporters' %}active{% endif %}" href="{% url 'transporters' %}">Movers</a></li>
+        {% if user.is_authenticated %}
+        <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == 'mybookings' %}active{% endif %}" href="{% url 'mybookings' %}">My Bookings</a></li>
+        <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == 'dashboard' %}active{% endif %}" href="{% url 'dashboard' %}">Dashboard</a></li>
+        {% endif %}
+      </ul>
+      <div class="d-flex align-items-center gap-2">
+        {% if user.is_authenticated %}
+          <a href="{% url 'startbook' %}" class="btn btn-sendit-primary btn-sm">Book a Move</a>
+          <div class="dropdown">
+            <button class="btn btn-sendit-outline btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+              {% bs_icon "person-circle" %} {{ user.first_name|default:user.username }}
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="{% url 'view_profile' %}">Profile</a></li>
+              {% if user.is_staff %}<li><a class="dropdown-item" href="{% url 'admin:index' %}">Admin panel</a></li>{% endif %}
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+          </div>
+        {% else %}
+          <a href="{% url 'login' %}" class="btn btn-sendit-outline btn-sm">Login</a>
+          <a href="{% url 'register' %}" class="btn btn-sendit-primary btn-sm">Sign Up</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main class="container my-4">
+  {% if messages %}
+    {% for message in messages %}
+      <div class="alert alert-{{ message.tags|default:'info' }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      </div>
+    {% endfor %}
+  {% endif %}
+  {% block content %}{% endblock %}
+</main>
+
+<footer class="sendit-footer">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="brand mb-2">{% bs_icon "box-seam" %} Sendit</div>
+        <p>Helping you find trustworthy movers, plan your move, and track your belongings — all in one place.</p>
+      </div>
+      <div class="col-md-4">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="{% url 'about' %}">About Us</a></li>
+          <li><a href="{% url 'services' %}">Services</a></li>
+          <li><a href="{% url 'transporters' %}">Find a Mover</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h5>Contact</h5>
+        <ul class="list-unstyled">
+          <li>{% bs_icon "envelope" %} support@sendit.example</li>
+          <li>{% bs_icon "telephone" %} +254 700 000 000</li>
+          <li>{% bs_icon "geo-alt" %} Nairobi, Kenya</li>
+        </ul>
+      </div>
+    </div>
+    <hr class="border-secondary mt-4">
+    <p class="text-center mb-0 small">&copy; {% now "Y" %} Sendit. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+{% block extra_scripts %}{% endblock %}
+</body>
+</html> {% endcomment %}
+{% load static %}
+{% load bootstrap_icons %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Sendit — Trusted Moving Made Simple{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  {% block extra_head %}{% endblock %}
+</head>
+<!-- UPDATED: Added d-flex flex-column min-vh-100 to the body -->
+<body class="d-flex flex-column min-vh-100">
+
+<nav class="navbar navbar-expand-lg sendit-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="{% url 'home' %}">{% bs_icon "box-seam" %} Sendit</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">Home</a></li>
+        <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}" href="{% url 'about' %}">About</a></li>
+        <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == 'services' %}active{% endif %}" href="{% url 'services' %}">Services</a></li>
+        <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == 'transporters' %}active{% endif %}" href="{% url 'transporters' %}">Movers</a></li>
+        {% if user.is_authenticated %}
+        <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == 'mybookings' %}active{% endif %}" href="{% url 'mybookings' %}">My Bookings</a></li>
+        <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == 'dashboard' %}active{% endif %}" href="{% url 'dashboard' %}">Dashboard</a></li>
+        {% endif %}
+      </ul>
+      <div class="d-flex align-items-center gap-2">
+        {% if user.is_authenticated %}
+          <a href="{% url 'startbook' %}" class="btn btn-sendit-primary btn-sm">Book a Move</a>
+          <div class="dropdown">
+            <button class="btn btn-sendit-outline btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+              {% bs_icon "person-circle" %} {{ user.first_name|default:user.username }}
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="{% url 'view_profile' %}">Profile</a></li>
+              {% if user.is_staff %}<li><a class="dropdown-item" href="{% url 'admin:index' %}">Admin panel</a></li>{% endif %}
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+          </div>
+        {% else %}
+          <a href="{% url 'login' %}" class="btn btn-sendit-outline btn-sm">Login</a>
+          <a href="{% url 'register' %}" class="btn btn-sendit-primary btn-sm">Sign Up</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- UPDATED: Added flex-grow-1 to the main container element -->
+<main class="container my-4 flex-grow-1">
+  {% if messages %}
+    {% for message in messages %}
+      <div class="alert alert-{{ message.tags|default:'info' }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      </div>
+    {% endfor %}
+  {% endif %}
+  {% block content %}{% endblock %}
+</main>
+
+<footer class="sendit-footer">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="brand mb-2">{% bs_icon "box-seam" %} Sendit</div>
+        <p>Helping you find trustworthy movers, plan your move, and track your belongings — all in one place.</p>
+      </div>
+      <div class="col-md-4">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="{% url 'about' %}">About Us</a></li>
+          <li><a href="{% url 'services' %}">Services</a></li>
+          <li><a href="{% url 'transporters' %}">Find a Mover</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h5>Contact</h5>
+        <ul class="list-unstyled">
+          <li>{% bs_icon "envelope" %} support@sendit.com</li>
+          <li>{% bs_icon "telephone" %} +254 700 000 000</li>
+          <li>{% bs_icon "geo-alt" %} Nairobi, Kenya</li>
+        </ul>
+      </div>
+    </div>
+    <hr class="border-secondary mt-4">
+    <p class="text-center mb-0 small">&copy; {% now "Y" %} Sendit. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+{% block extra_scripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}My Bookings — Sendit{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">My Bookings</h1>
+
+{% if bookings %}
+<div class="table-responsive">
+  <table class="table align-middle sendit-card">
+    <thead><tr><th>Date</th><th>Route</th><th>Company</th><th>Price</th><th>Status</th><th></th></tr></thead>
+    <tbody>
+    {% for booking in bookings %}
+      <tr>
+        <td>{{ booking.date }}</td>
+        <td>{{ booking.current_address }} &rarr; {{ booking.destination_address }}</td>
+        <td>{{ booking.company.name|default:"—" }}</td>
+        <td>{% if booking.price %}KES {{ booking.price }}{% else %}—{% endif %}</td>
+        <td><span class="status-badge status-{{ booking.status }}">{{ booking.get_status_display }}</span></td>
+        <td><a href="{% url 'booking_detail' booking.id %}" class="btn btn-sm btn-sendit-outline">View</a></td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% else %}
+<div class="sendit-card text-center py-5">
+  <p class="text-muted mb-3">You don't have any bookings yet.</p>
+  <a href="{% url 'startbook' %}" class="btn btn-sendit-primary">Book Your First Move</a>
+</div>
+{% endif %}
+{% endblock %}

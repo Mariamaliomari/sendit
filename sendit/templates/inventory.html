@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}Inventory Checklist — Sendit{% endblock %}
+
+{% block content %}
+<a href="{% url 'booking_detail' booking.id %}" class="small">&larr; Back to booking</a>
+<h1 class="mb-4 mt-2">Inventory Checklist</h1>
+<p class="text-muted mb-4">Catalog your belongings so nothing gets lost or damaged during the move.</p>
+
+<div class="row g-4">
+  <div class="col-md-5">
+    <div class="sendit-card">
+      <h5>Add an item</h5>
+      <form method="post">
+        {% csrf_token %}
+        <label class="form-label">Item name</label>
+        {{ form.name }}
+        <label class="form-label">Category</label>
+        {{ form.category }}
+        <label class="form-label">Quantity</label>
+        {{ form.quantity }}
+        <div class="form-check mt-2">
+          {{ form.is_fragile }}
+          <label class="form-check-label">Fragile</label>
+        </div>
+        <label class="form-label">Notes</label>
+        {{ form.notes }}
+        <button type="submit" class="btn btn-sendit-primary w-100 mt-3">Add to Inventory</button>
+      </form>
+    </div>
+  </div>
+  <div class="col-md-7">
+    <div class="sendit-card">
+      <h5>Your items ({{ items.count }})</h5>
+      {% for item in items %}
+        <div class="checklist-item">
+          <div>
+            <strong>{{ item.name }}</strong> &times;{{ item.quantity }}
+            <span class="text-muted small">— {{ item.get_category_display }}</span>
+            {% if item.is_fragile %}<span class="badge bg-danger ms-1">Fragile</span>{% endif %}
+            {% if item.notes %}<div class="text-muted small">{{ item.notes }}</div>{% endif %}
+          </div>
+          <form method="post" action="{% url 'delete_inventory_item' booking.id item.id %}">
+            {% csrf_token %}
+            <button class="btn btn-sm btn-outline-danger">Remove</button>
+          </form>
+        </div>
+      {% empty %}
+        <p class="text-muted mb-0">No items catalogued yet.</p>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

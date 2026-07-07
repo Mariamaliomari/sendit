@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Edit Profile — Sendit{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="sendit-card">
+      <h3 class="mb-3">Edit Profile</h3>
+      <form method="post">
+        {% csrf_token %}
+        <label class="form-label">First name</label>
+        {{ form.first_name }}
+        <label class="form-label">Last name</label>
+        {{ form.last_name }}
+        <label class="form-label">Email</label>
+        {{ form.email }}
+        <label class="form-label">Phone number</label>
+        {{ form.phone_number }}
+        <label class="form-label">Address</label>
+        {{ form.address }}
+        <label class="form-label">Bio</label>
+        {{ form.bio }}
+        <button type="submit" class="btn btn-sendit-primary w-100 mt-4">Save Changes</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

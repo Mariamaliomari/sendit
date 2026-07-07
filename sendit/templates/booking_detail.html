@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% block title %}Booking #{{ booking.id }} — Sendit{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-start mb-4 flex-wrap gap-2">
+  <div>
+    <h1 class="mb-1">Booking #{{ booking.id }}</h1>
+    <span class="status-badge status-{{ booking.status }}">{{ booking.get_status_display }}</span>
+    {% if latest_payment and latest_payment.status == "PENDING" %}
+      <div id="payment-waiting" class="alert alert-info mt-2 mb-0 py-2 px-3">
+        Waiting for M-Pesa confirmation on your phone…
+      </div>
+      <script>
+      (function poll() {
+        fetch("{% url 'payment_status' latest_payment.id %}")
+          .then(r => r.json())
+          .then(data => {
+            if (data.status === "SUCCESS") {
+              window.location.href = "{% url 'mybookings' %}";
+            } else if (data.status === "FAILED") {
+              const el = document.getElementById("payment-waiting");
+              el.classList.remove("alert-info");
+              el.classList.add("alert-danger");
+              el.textContent = "Payment failed. Please try again.";
+            } else {
+              setTimeout(poll, 3000);
+            }
+          })
+          .catch(() => setTimeout(poll, 5000));
+      })();
+      </script>
+    {% endif %}
+  </div>
+  <div class="d-flex gap-2">
+    <a href="{% url 'inventory' booking.id %}" class="btn btn-sendit-outline btn-sm">Inventory Checklist</a>
+    <a href="{% url 'timeline' booking.id %}" class="btn btn-sendit-outline btn-sm">Moving Timeline</a>
+    {% if booking.price and booking.status != 'completed' %}
+      <a href="{% url 'pay' booking.id %}" class="btn btn-sendit-primary btn-sm">Pay Now</a>
+    {% endif %}
+  </div>
+</div>
+
+<div class="row g-4">
+  <div class="col-md-6">
+    <div class="sendit-card mb-4">
+      <h5>Move Details</h5>
+      <p class="mb-1"><strong>Date:</strong> {{ booking.date }} at {{ booking.moving_time }}</p>
+      <p class="mb-1"><strong>From:</strong> {{ booking.current_address }}</p>
+      <p class="mb-1"><strong>To:</strong> {{ booking.destination_address }}</p>
+      <p class="mb-1"><strong>Property:</strong> {{ booking.get_property_type_display }}, {{ booking.bedrooms }} bedroom(s)</p>
+      <p class="mb-1"><strong>Service:</strong> {{ booking.get_services_display }}</p>
+      <p class="mb-1"><strong>Crew size:</strong> {{ booking.crew_size }}</p>
+      <p class="mb-1"><strong>Mover:</strong> {{ booking.company.name|default:"Not yet selected" }}</p>
+      <p class="mb-1"><strong>Price:</strong> {% if booking.price %}KES {{ booking.price }}{% else %}Pending{% endif %}</p>
+    </div>
+
+    {% if can_update_status %}
+    <div class="sendit-card">
+      <h5>Update Status</h5>
+      <form method="post">
+        {% csrf_token %}
+        <select name="status" class="form-select mb-2">
+          {% for value, label in status_choices %}
+            <option value="{{ value }}" {% if value == booking.status %}selected{% endif %}>{{ label }}</option>
+          {% endfor %}
+        </select>
+        <button type="submit" class="btn btn-sendit-primary btn-sm">Update</button>
+      </form>
+    </div>
+    {% endif %}
+  </div>
+
+  <div class="col-md-6">
+    <div class="sendit-card">
+      <h5>Track & Communicate</h5>
+      <div class="chat-box mb-3">
+        {% for msg in chat_messages %}
+          <div class="chat-bubble">
+            <div class="meta">{{ msg.sender.first_name|default:msg.sender.username }} &middot; {{ msg.created_at|date:"M d, H:i" }}</div>
+            {{ msg.content }}
+          </div>
+        {% empty %}
+          <p class="text-muted small mb-0">No messages yet. Say hello to your mover.</p>
+        {% endfor %}
+      </div>
+      <form method="post" class="d-flex gap-2">
+        {% csrf_token %}
+        {{ message_form.content }}
+        <button type="submit" class="btn btn-sendit-primary">Send</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

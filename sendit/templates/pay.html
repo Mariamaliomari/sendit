@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Pay for Your Move — Sendit{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="sendit-card text-center">
+      <img src="{% static 'images/phone.avif' %}" class="card-img-top" alt="Mobile payment" style="height:160px;">
+      <h3>Pay for Booking #{{ booking.id }}</h3>
+      <p class="text-muted">Amount due: <strong>KES {{ booking.price }}</strong></p>
+      <form method="post">
+        {% csrf_token %}
+        <label class="form-label">M-Pesa Phone Number</label>
+        <input type="tel" name="phone_number" class="form-control" placeholder="2547XXXXXXXX" required>
+        <button type="submit" class="btn btn-sendit-primary w-100 mt-4">Pay with M-Pesa</button>
+      </form>
+      <p class="text-muted small mt-3">You'll receive a prompt on your phone to enter your M-Pesa PIN.</p>
+    </div>
+  </div>
+</div>
+{% endblock %}

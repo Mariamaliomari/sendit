@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Book Your Move — Sendit{% endblock %}
+
+{% block content %}
+<div class="row g-5">
+  <div class="col-lg-5 d-none d-lg-block">
+    <img src="{% static 'images/tailor2.jpg' %}" class="img-fluid rounded-4 shadow-sm mb-4" alt="Booking a move">
+    <h4>Step 1 of 4</h4>
+    <p class="text-muted">Enter your details — tell us when, where, and what you need help with. Next you'll
+      compare instant quotes from movers.</p>
+  </div>
+  <div class="col-lg-7">
+    <div class="sendit-card">
+      <h3 class="mb-3">Enter Your Move Details</h3>
+      <form method="post" novalidate>
+        {% csrf_token %}
+        <div class="row">
+          <div class="col-md-6">
+            <label class="form-label">Move date</label>
+            {{ form.date }}
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Preferred time</label>
+            {{ form.moving_time }}
+          </div>
+        </div>
+        <label class="form-label">Current address</label>
+        {{ form.current_address }}
+        <label class="form-label">Destination address</label>
+        {{ form.destination_address }}
+        <div class="row">
+          <div class="col-md-6">
+            <label class="form-label">Property type</label>
+            {{ form.property_type }}
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Bedrooms</label>
+            {{ form.bedrooms }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label class="form-label">Service needed</label>
+            {{ form.services }}
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Crew size</label>
+            {{ form.crew_size }}
+          </div>
+        </div>
+        <label class="form-label">Vehicle size</label>
+        {{ form.vehicle_size }}
+        <div class="row">
+          <div class="col-md-4">
+            <label class="form-label">Emergency contact name</label>
+            {{ form.emergency_contact_name }}
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Contact phone</label>
+            {{ form.emergency_contact_phone_number }}
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Relationship</label>
+            {{ form.relationship_to_user }}
+          </div>
+        </div>
+        <label class="form-label">Special instructions</label>
+        {{ form.instructions }}
+
+        <div class="form-check mt-3">
+          {{ form.special_items }}
+          <label class="form-check-label">I have fragile or special items</label>
+        </div>
+        <div class="form-check">
+          {{ form.accept_terms }}
+          <label class="form-check-label">I accept the terms & conditions</label>
+        </div>
+
+        <button type="submit" class="btn btn-sendit-primary w-100 mt-4">Continue to Get Price</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

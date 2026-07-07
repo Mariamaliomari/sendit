@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Sign Up — Sendit{% endblock %}
+
+{% block content %}
+<div class="auth-wrapper">
+  <div class="auth-card">
+    <h3 class="text-center mb-1">Create your account</h3>
+    <p class="text-center text-muted small mb-4">Join Sendit to book, track, and manage your move.</p>
+    <form method="post" novalidate>
+      {% csrf_token %}
+      <div class="row">
+        <div class="col-6">
+          <label class="form-label">First name</label>
+          {{ form.first_name }}
+        </div>
+        <div class="col-6">
+          <label class="form-label">Last name</label>
+          {{ form.last_name }}
+        </div>
+      </div>
+      <label class="form-label">Username</label>
+      {{ form.username }}
+      <label class="form-label">Email</label>
+      {{ form.email }}
+      <label class="form-label">Phone number</label>
+      {{ form.phone_number }}
+      <label class="form-label">I am a</label>
+      {{ form.role }}
+      <label class="form-label">Password</label>
+      {{ form.password1 }}
+      <label class="form-label">Confirm password</label>
+      {{ form.password2 }}
+
+      {% if form.errors %}
+        <div class="alert alert-danger mt-3">
+          {{ form.errors }}
+        </div>
+      {% endif %}
+
+      <button type="submit" class="btn btn-sendit-primary w-100 mt-4">Create Account</button>
+    </form>
+    <p class="text-center mt-3 small">Already have an account? <a href="{% url 'login' %}">Log in</a></p>
+  </div>
+</div>
+{% endblock %}

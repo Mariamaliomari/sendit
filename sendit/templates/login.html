@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Login — Sendit{% endblock %}
+
+{% block content %}
+<div class="auth-wrapper">
+  <div class="auth-card">
+    <h3 class="text-center mb-1">Welcome back</h3>
+    <p class="text-center text-muted small mb-4">Log in to manage your moves.</p>
+    <form method="post" novalidate>
+      {% csrf_token %}
+      <label class="form-label">Username</label>
+      {{ form.username }}
+      <label class="form-label">Password</label>
+      {{ form.password }}
+
+      {% if form.non_field_errors %}
+        <div class="alert alert-danger mt-3">{{ form.non_field_errors }}</div>
+      {% endif %}
+
+      <button type="submit" class="btn btn-sendit-primary w-100 mt-4">Log In</button>
+    </form>
+    <p class="text-center mt-3 small">Don't have an account? <a href="{% url 'register' %}">Sign up</a></p>
+  </div>
+</div>
+{% endblock %}

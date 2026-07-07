@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}About Sendit{% endblock %}
+
+{% block content %}
+<div class="row align-items-center g-5 mb-5">
+  <div class="col-md-6">
+    <h1>About Sendit</h1>
+    <p class="text-muted">Sendit simplifies the process of finding reliable transport services by connecting users with trusted, rated drivers and verified transport companies. Whether you're moving household items, office equipment, or making a small delivery, Sendit helps you compare trusted transport providers, book the right vehicle, and communicate directly with your driver throughout the journey.</p>
+    <p class="text-muted">Whether you're moving a studio apartment or a whole office, Sendit gives you an instant
+      price, a clear plan, and a direct line of communication with your mover from booking to drop-off.</p>
+  </div>
+  <div class="col-md-6">
+    <img src="{% static 'images/packing.jpeg' %}" class="img-fluid rounded-4 shadow-sm" alt="Packing for a move">
+  </div>
+</div>
+
+<div class="row g-4 mb-5">
+  <div class="col-md-4">
+    <div class="sendit-card text-center">
+      <img src="{% static 'images/office.webp' %}" class="card-img-top" alt="Our mission">
+      <h5>Our Mission</h5>
+      <p class="text-muted small">Make finding a reliable mover as easy as booking a ride.</p>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="sendit-card text-center">
+      <img src="{% static 'images/tailor1.jpeg' %}" class="card-img-top" alt="Our approach">
+      <h5>Our Approach</h5>
+      <p class="text-muted small">Transparent pricing, verified movers, and tools to plan your move day.</p>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="sendit-card text-center">
+      <img src="{% static 'images/driver.jpg' %}" class="card-img-top" alt="Our movers">
+      <h5>Our Movers</h5>
+      <p class="text-muted small">A growing network of vetted, rated moving companies you can trust.</p>
+    </div>
+  </div>
+</div>
+{% endblock %}

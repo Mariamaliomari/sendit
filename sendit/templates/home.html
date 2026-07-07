@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+{% load static %}
+{% load bootstrap_icons %}
+
+{% block title %}
+
+Sendit — Trusted Moving Made Simple
+{% endblock %}
+
+{% block content %}
+<section
+  class="hero"
+  style="
+    background-image: url('{% static 'images/hero1.jpeg'%');
+  "
+>
+  <div class="hero-content">
+    <h1>Moving made simple, trustworthy, and stress-free.</h1>
+    <p>
+      Find a vetted mover, plan your move day, and catalog every belonging — all
+      from one place.
+    </p>
+    <div class="d-flex gap-3">
+      {% if user.is_authenticated %}
+      <a href="{% url 'startbook' %}" class="btn btn-sendit-primary btn-lg"
+        >Book Your Move</a
+      >
+      {% else %}
+      <a href="{% url 'register' %}" class="btn btn-sendit-primary btn-lg"
+        >Get Started</a
+      >
+      {% endif %}
+      <a
+        href="{% url 'transporters' %}"
+        class="btn btn-sendit-outline btn-lg"
+        style="border-color: #fff; color: #fff"
+        >Browse Movers</a
+      >
+    </div>
+  </div>
+</section>
+
+<section class="mb-5">
+  <h2 class="text-center mb-4">How Sendit Works</h2>
+  <div class="row g-4">
+    <div class="col-md-3 col-6">
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <h5>Enter Your Details</h5>
+        <p class="text-muted small">
+          Tell us when, where, and what you need help with.
+        </p>
+      </div>
+    </div>
+    <div class="col-md-3 col-6">
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <h5>Get Your Price</h5>
+        <p class="text-muted small">
+          Compare one or two movers and get an instant, guaranteed price.
+        </p>
+      </div>
+    </div>
+    <div class="col-md-3 col-6">
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <h5>Book Your Move</h5>
+        <p class="text-muted small">
+          Get connected and scheduled with your mover in minutes.
+        </p>
+      </div>
+    </div>
+    <div class="col-md-3 col-6">
+      <div class="step-card">
+        <div class="step-number">4</div>
+        <h5>Track & Communicate</h5>
+        <p class="text-muted small">
+          Message your mover and track your move in real time.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mb-5">
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="sendit-card">
+        <div class="icon-badge">{% bs_icon "shield-check" %}</div>
+        <h5>Trusted Movers</h5>
+        <p class="text-muted">
+          Every mover is reviewed and rated so you can move with confidence.
+        </p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="sendit-card">
+        <div class="icon-badge">{% bs_icon "calendar-check" %}</div>
+        <h5>Plan Your Timeline</h5>
+        <p class="text-muted">
+          Manage every task leading up to moving day, so nothing is forgotten.
+        </p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="sendit-card">
+        <div class="icon-badge">{% bs_icon "clipboard-check" %}</div>
+        <h5>Inventory Checklist</h5>
+        <p class="text-muted">
+          Catalog every belonging room by room before the movers arrive.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% if featured_companies %}
+<section class="mb-5">
+  <h2 class="text-center mb-4">Featured Movers</h2>
+  <div class="row g-4">
+    {% for company in featured_companies %}
+    <div class="col-md-4">
+      <div class="sendit-card company-card">
+        <img
+          src="{% static 'images/removal.webp' %}"
+          class="card-img-top"
+          alt="{{ company.name }}"
+        />
+        <div class="d-flex justify-content-between align-items-start">
+          <h5>{{ company.name }}</h5>
+          {% if company.is_verified %}<span class="badge-verified"
+            >Verified</span
+          >{% endif %}
+        </div>
+        <p class="text-muted small">{{ company.description }}</p>
+        <p class="rating">★ {{ company.rating }}/5</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %} {% endblock %}

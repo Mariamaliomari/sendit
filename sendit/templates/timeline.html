@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Moving Timeline — Sendit{% endblock %}
+
+{% block content %}
+<a href="{% url 'booking_detail' booking.id %}" class="small">&larr; Back to booking</a>
+<h1 class="mb-4 mt-2">Moving Day Timeline</h1>
+<p class="text-muted mb-4">Plan and manage your tasks leading up to moving day.</p>
+
+<div class="row g-4">
+  <div class="col-md-5">
+    <div class="sendit-card">
+      <h5>Add a task</h5>
+      <form method="post">
+        {% csrf_token %}
+        <label class="form-label">Task</label>
+        {{ form.title }}
+        <label class="form-label">Due date</label>
+        {{ form.due_date }}
+        <button type="submit" class="btn btn-sendit-primary w-100 mt-3">Add Task</button>
+      </form>
+    </div>
+  </div>
+  <div class="col-md-7">
+    <div class="sendit-card">
+      <h5>Your tasks</h5>
+      {% for task in tasks %}
+        <div class="checklist-item {% if task.is_completed %}completed{% endif %}">
+          <div>
+            <strong>{{ task.title }}</strong>
+            {% if task.due_date %}<span class="text-muted small"> — due {{ task.due_date }}</span>{% endif %}
+          </div>
+          <form method="post" action="{% url 'toggle_task' booking.id task.id %}">
+            {% csrf_token %}
+            <button class="btn btn-sm btn-outline-secondary">
+              {% if task.is_completed %}Undo{% else %}Mark Done{% endif %}
+            </button>
+          </form>
+        </div>
+      {% empty %}
+        <p class="text-muted mb-0">No tasks yet. Add your first one.</p>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

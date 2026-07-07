@@ -1,0 +1,288 @@
+/* =========================================================================
+   Sendit — unified design system
+   Replaces the old scattered per-page CSS files (index.css, about.css,
+   booking.css, login.css, register.css, transporters.css) with one
+   consistent, token-based stylesheet built on top of Bootstrap 5.
+   ========================================================================= */
+
+:root {
+  --color-navy: #0f1f3d;
+  --color-navy-light: #16305e;
+  --color-orange: #ef4410;
+  --color-orange-dark: #c93a0d;
+  --color-bg: #f7f8fb;
+  --color-card: #ffffff;
+  --color-text: #1c2333;
+  --color-muted: #6b7280;
+  --color-border: #e6e8ee;
+  --color-success: #1a9e6b;
+  --color-danger: #d63b3b;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+
+  --shadow-sm: 0 2px 8px rgba(15, 31, 61, 0.06);
+  --shadow-md: 0 8px 24px rgba(15, 31, 61, 0.10);
+  --shadow-lg: 0 16px 40px rgba(15, 31, 61, 0.16);
+
+  --font-heading: "Poppins", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Inter", "Segoe UI", system-ui, sans-serif;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-navy);
+}
+
+a { color: var(--color-orange); text-decoration: none; }
+a:hover { color: var(--color-orange-dark); }
+
+/* ---------------------------------------------------------------------- */
+/* Navbar                                                                  */
+/* ---------------------------------------------------------------------- */
+
+.sendit-navbar {
+  background: var(--color-card);
+  box-shadow: var(--shadow-sm);
+  padding: 0.75rem 0;
+}
+
+.sendit-navbar .navbar-brand {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.6rem;
+  color: var(--color-orange) !important;
+}
+
+.sendit-navbar .nav-link {
+  font-weight: 600;
+  color: var(--color-navy) !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: var(--radius-sm);
+  transition: background 0.15s ease;
+}
+
+.sendit-navbar .nav-link.active,
+.sendit-navbar .nav-link:hover {
+  background: rgba(239, 68, 16, 0.08);
+  color: var(--color-orange) !important;
+}
+
+/* ---------------------------------------------------------------------- */
+/* Buttons                                                                 */
+/* ---------------------------------------------------------------------- */
+
+.btn-sendit-primary {
+  background: var(--color-orange);
+  border: none;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 0.6rem 1.6rem;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+.btn-sendit-primary:hover { background: var(--color-orange-dark); color: #fff; transform: translateY(-1px); }
+
+.btn-sendit-outline {
+  background: transparent;
+  border: 2px solid var(--color-navy);
+  color: var(--color-navy);
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 0.55rem 1.5rem;
+}
+.btn-sendit-outline:hover { background: var(--color-navy); color: #fff; }
+
+/* ---------------------------------------------------------------------- */
+/* Hero                                                                    */
+/* ---------------------------------------------------------------------- */
+
+.hero {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  color: #fff;
+  min-height: 460px;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  margin: 1.5rem 0 3rem;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(15, 31, 61, 0.92) 20%, rgba(15, 31, 61, 0.55) 90%);
+}
+
+.hero-content { position: relative; z-index: 1; padding: 3rem; max-width: 640px; }
+.hero-content h1 { color: #fff; font-size: 2.75rem; margin-bottom: 1rem; }
+.hero-content p { font-size: 1.15rem; color: #dbe1ee; margin-bottom: 1.75rem; }
+
+/* ---------------------------------------------------------------------- */
+/* Cards                                                                   */
+/* ---------------------------------------------------------------------- */
+
+.sendit-card {
+  background: var(--color-card);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border);
+  padding: 1.75rem;
+  height: 100%;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+.sendit-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+
+.sendit-card img.card-img-top {
+  border-radius: var(--radius-sm);
+  margin-bottom: 1rem;
+  height: 190px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.icon-badge {
+  width: 52px; height: 52px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(239, 68, 16, 0.1);
+  color: var(--color-orange);
+  border-radius: var(--radius-sm);
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+/* ---------------------------------------------------------------------- */
+/* Steps (how it works)                                                    */
+/* ---------------------------------------------------------------------- */
+
+.step-card { text-align: center; padding: 1.5rem; }
+.step-number {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--color-navy); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; margin: 0 auto 1rem;
+}
+
+/* ---------------------------------------------------------------------- */
+/* Company / mover cards                                                   */
+/* ---------------------------------------------------------------------- */
+
+.company-card .badge-verified {
+  background: var(--color-success);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 999px;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.75rem;
+}
+.company-card .rating { color: var(--color-orange); font-weight: 700; }
+
+/* ---------------------------------------------------------------------- */
+/* Forms                                                                   */
+/* ---------------------------------------------------------------------- */
+
+.auth-wrapper {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-card {
+  background: var(--color-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 2.5rem;
+  max-width: 460px;
+  width: 100%;
+}
+
+.form-control, .form-select {
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  padding: 0.65rem 0.9rem;
+}
+.form-control:focus, .form-select:focus {
+  border-color: var(--color-orange);
+  box-shadow: 0 0 0 0.2rem rgba(239, 68, 16, 0.15);
+}
+
+label.form-label { font-weight: 600; color: var(--color-navy); margin-top: 0.75rem; }
+
+/* ---------------------------------------------------------------------- */
+/* Status badges                                                           */
+/* ---------------------------------------------------------------------- */
+
+.status-badge { border-radius: 999px; padding: 0.35rem 0.9rem; font-weight: 700; font-size: 0.8rem; }
+.status-draft, .status-quoted { background: #fff3e0; color: #b5680a; }
+.status-confirmed { background: #e5f0ff; color: #1f5fbf; }
+.status-in_progress { background: #fff0e0; color: var(--color-orange-dark); }
+.status-completed { background: #e3f7ee; color: var(--color-success); }
+.status-cancelled { background: #fdeaea; color: var(--color-danger); }
+
+/* ---------------------------------------------------------------------- */
+/* Dashboard                                                                */
+/* ---------------------------------------------------------------------- */
+
+.stat-tile {
+  background: var(--color-navy);
+  color: #fff;
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+}
+.stat-tile .stat-value { font-size: 2rem; font-weight: 800; }
+.stat-tile.orange { background: var(--color-orange); }
+
+/* ---------------------------------------------------------------------- */
+/* Checklist (inventory / timeline)                                        */
+/* ---------------------------------------------------------------------- */
+
+.checklist-item {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 0.5rem;
+  background: #fff;
+}
+.checklist-item.completed { opacity: 0.55; text-decoration: line-through; }
+
+/* ---------------------------------------------------------------------- */
+/* Chat / messages                                                         */
+/* ---------------------------------------------------------------------- */
+
+.chat-box { max-height: 320px; overflow-y: auto; background: #fbfbfd; border-radius: var(--radius-sm); padding: 1rem; border: 1px solid var(--color-border); }
+.chat-bubble { background: #fff; border-radius: var(--radius-sm); padding: 0.6rem 0.9rem; margin-bottom: 0.6rem; box-shadow: var(--shadow-sm); }
+.chat-bubble .meta { font-size: 0.75rem; color: var(--color-muted); }
+
+/* ---------------------------------------------------------------------- */
+/* Footer                                                                  */
+/* ---------------------------------------------------------------------- */
+
+.sendit-footer {
+  background: var(--color-navy);
+  color: #cbd4e8;
+  margin-top: 4rem;
+  padding: 3rem 0 1.5rem;
+}
+.sendit-footer h5 { color: #fff; }
+.sendit-footer a { color: #cbd4e8; }
+.sendit-footer a:hover { color: var(--color-orange); }
+.sendit-footer .brand { color: var(--color-orange); font-weight: 800; font-size: 1.4rem; }
+
+@media (max-width: 767px) {
+  .hero { min-height: 340px; }
+  .hero-content { padding: 2rem 1.5rem; }
+  .hero-content h1 { font-size: 2rem; }
+}

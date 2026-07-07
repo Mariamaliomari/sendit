@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}My Profile — Sendit{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="sendit-card">
+      <h3 class="mb-3">My Profile</h3>
+      <p><strong>Name:</strong> {{ profile.user.first_name }} {{ profile.user.last_name }}</p>
+      <p><strong>Username:</strong> {{ profile.user.username }}</p>
+      <p><strong>Email:</strong> {{ profile.user.email }}</p>
+      <p><strong>Role:</strong> {{ profile.get_role_display }}</p>
+      <p><strong>Phone:</strong> {{ profile.phone_number|default:"—" }}</p>
+      <p><strong>Address:</strong> {{ profile.address|default:"—" }}</p>
+      <p><strong>Bio:</strong> {{ profile.bio|default:"—" }}</p>
+      <a href="{% url 'update_profile' %}" class="btn btn-sendit-primary">Edit Profile</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

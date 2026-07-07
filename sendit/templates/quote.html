@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Get Your Price — Sendit{% endblock %}
+
+{% block content %}
+<h3 class="mb-1">Step 2: Get Your Price</h3>
+<p class="text-muted mb-4">Move on {{ booking.date }} from {{ booking.current_address }} to {{ booking.destination_address }}</p>
+
+{% if quotes %}
+  <div class="row g-4">
+    {% for q in quotes %}
+    <div class="col-md-6">
+      <div class="sendit-card company-card">
+        <img src="{% static 'images/cop2.webp' %}" class="card-img-top" alt="{{ q.company.name }}">
+        <div class="d-flex justify-content-between align-items-start mb-1">
+          <h5 class="mb-0">{{ q.company.name }}</h5>
+          {% if q.company.is_verified %}<span class="badge-verified">Verified</span>{% endif %}
+        </div>
+        <p class="rating">★ {{ q.company.rating }}/5</p>
+        <p class="fs-3 fw-bold text-dark mb-3">KES {{ q.price }}</p>
+        <form method="post">
+          {% csrf_token %}
+          <input type="hidden" name="company_id" value="{{ q.company.id }}">
+          <button type="submit" class="btn btn-sendit-primary w-100">Book This Mover</button>
+        </form>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+{% else %}
+  <div class="sendit-card">
+    <h5 class="mb-3">Select one or two movers to compare</h5>
+    <form method="post">
+      {% csrf_token %}
+      {% for checkbox in selection_form.companies %}
+        <div class="form-check mb-2">
+          {{ checkbox.tag }}
+          <label class="form-check-label" for="{{ checkbox.id_for_label }}">{{ checkbox.choice_label }}</label>
+        </div>
+      {% endfor %}
+      {% if selection_form.companies.errors %}
+        <div class="alert alert-danger mt-2">{{ selection_form.companies.errors }}</div>
+      {% endif %}
+      <button type="submit" class="btn btn-sendit-primary mt-3">Get Instant Price</button>
+    </form>
+  </div>
+{% endif %}
+{% endblock %}
